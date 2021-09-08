@@ -1,0 +1,81 @@
+\section{Types}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Missing}
+\begin{itemize}
+    \item missing::Missing
+    \item nothing::Nothing
+    \item NaN::Float64
+    \item Inf
+\end{itemize} \
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Numeric Types}
+\begin{itemize}
+    \item Int64 ...... 42
+    \item Float64 ...... 0.2, 1e10, 4.
+    \item Char ....... 'a','b'
+    \item Bool ....... true, false
+    \item Complex ...... 5-2im, complex(5,2)
+\end{itemize} \
+
+\textit{Basic math functions:}\\
+\begin{tabular}{l l l l}
+    abs & cmp & round & divrem   \\
+    real & imag \\
+\end{tabular} \
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Structs}
+\mycolX{40mm}{\code{mutable struct MyS\{T<:Number\}}}  \\
+\mycolX{40mm}{\code{\phantom{xxx}property1}} \# untyped \\
+\mycolX{40mm}{\code{\phantom{xxx}property2::String}} \# concrete type \\
+\mycolX{40mm}{\code{\phantom{xxx}property3::T}} \# type constraint \\
+\mycolX{40mm}{\code{end}} \#  \\
+\mycolX{40mm}{\code{mutable struct MyMutS ...}} \# mutable \\
+\mycolX{40mm}{\code{s = MyS(\textquotedbl a\textquotedbl,\textquotedbl b\textquotedbl,5)}} \# initialization \\
+\mycolX{40mm}{\code{a = s.property3}} \# referencing \\
+\textit{To define abstract types:}\\
+\mycolX{40mm}{\code{abstract type MyGenType end}}  \\
+\mycolX{40mm}{\code{abstract type MyConcType <:MyGenType end}}  \\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Regexs}
+\mycolX{35mm}{\code{rm = match(r"regex",s,i)}} \# execute \\
+\mycolX{35mm}{\code{\phantom{xxx}rm.match}} \# substring matched \\
+\mycolX{35mm}{\code{\phantom{xxx}rm.captures}} \# tuple of matches \\
+\mycolX{35mm}{\code{\phantom{xxx}rm.offsets}} \# vector of matches \\
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Conversion}
+\mycolX{35mm}{\code{parse(Float64, "3.14")}} \# float from string \\
+\mycolX{35mm}{\code{float64("3.14")}} \# ditto \\
+\mycolX{35mm}{\code{string(3.14)}} \# inverse \\
+\mycolX{35mm}{\code{int8("123")}} \# int from string \\
+\mycolX{35mm}{\code{hex(x); oct(x); dec(x)}} \# various casts \\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Type System \& Generics}
+\mycolX{35mm}{\code{q::Number}} \# type annotation \\
+\mycolX{35mm}{\code{f\{T<:Number\}(x::T,y::T)}} \# parametric types \\
+\mycolX{35mm}{\code{f\{A<:B\}(x::A)}} \# subtype constraints \\
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Type System Helper Methods}
+\begin{itemize}
+    \item subtypes(type)
+    \item supertype(type)
+    \item fieldnames(type)
+    \item isa(field,type)
+    \item typeof(obj)
+    \item isequal(x,y)
+\end{itemize}

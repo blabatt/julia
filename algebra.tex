@@ -1,0 +1,51 @@
+\section{\href{https://github.com/JuliaPy/SymPy.jl}{Computer Algebra}}
+%\textit{with following:}\\
+\entry{30mm}{ENV[\textquotedbl PYTHON\textquotedbl]=\textquotedbl\textquotedbl}{use private Python}\\
+{\footnotesize \code{Pkg.add(``PyCall''); Pkg.build(``PyCall''); using PyCall}}\\
+\textit{then reload Julia. See \href{https://nbviewer.jupyter.org/github/sylvaticus/juliatutorial/blob/master/assets/Symbolic\%20computation.ipynb}{here} for a notebook, \href{https://juliahub.com/docs/SymPy/KzewI/1.0.28/Tutorial/intro/}{here} for a julia tutorial, or \href{https://docs.sympy.org/latest/tutorial/calculus.html}{here} for Python.}
+\code{Pkg.add(``SymPy''); \quad using SymPy}\\
+
+\entry{35mm}{x,y,z = symbols("x y z")}{define symbols}\\
+\entry{35mm}{\@ vars x,y,z}{equiv to above}\\
+\entry{35mm}{expr = x+2*y}{an expression}\\
+\entry{35mm}{expand(x*(x+2*y))}{expanding}\\
+\entry{35mm}{factor(x\textasciicircum 2+2*x*y)}{factoring}\\
+\entry{35mm}{simplify(f-g)}{reduce}\\
+\entry{47mm}{cancel((x\textasciicircum 2 + 2*x + 1)/(x\textasciicircum 2 + x))}{std form}\\
+\entry{30mm}{apart(expr)}{partial frac. decomp.}\\
+\entry{35mm}{f=(x+1)\textasciicircum 2;g = x\textasciicircum 2-2x+1}{functions}\\
+\entry{35mm}{f-g}{higher order}\\
+\entry{35mm}{expr(x=>1,y=>2)}{parameterize}\\
+\entry{35mm}{expr.subs([(x,2), (y,2)])}{ibid}\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Solving}
+\entry{35mm}{solve(expr,y)}{solve: expr=0}\\
+\entry{35mm}{eqn = Eq(expr2,2)}{equation object}\\
+\entry{35mm}{solve(eqn)}{solve arb. eqn}\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Calculus}
+\entry{35mm}{diff(cos(x), x)}{differentiate wrt x}\\
+\entry{35mm}{diff(x\textasciicircum 4, x, x, x)
+}{$d^3/dx^3 (x^4)$}\\
+\entry{35mm}{integrate(cos(x), x)}{indefinite}\\
+\entry{38mm}{integrate(exp(-x), (x, 0, oo))}{definite: $\int_0^{\infty} e^x dx$}\\
+\entry{50mm}{sympy.Integral(cos(x)\textasciicircum 2, (x, 0, PI))}{$\neg$ eval\textquotesingle d}\\
+\entry{35mm}{limit(sin(x)/x, x, 0)}{limit}\\
+\entry{35mm}{exp(sin(x)).series(x, 0, 4)}{series expand}\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Linear Algebra}
+\entry{35mm}{M = Sym[1 2 3; 3 2 1]}{matrix}\\
+\entry{35mm}{N = Sym[0, 1, 1]}{vector}\\
+\entry{35mm}{M*N}{symbolic eval}\\
+\entry{35mm}{det([1 x; y 4])}{LA lib. works}\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Miscellaneous}
+\entry{35mm}{Or(x,y)}{logic}\\
+\entry{50mm}{sympy.expand\_trig(sin(2x)+cos(2x))}{trig}\\
+\entry{45mm}{trigsimp(sin(x)\textasciicircum 2 + cos(x)\textasciicircum 2)}{simplify}\\
+\entry{35mm}{powsimp(x\textasciicircum a*x\textasciicircum b)}{power simplify}\\
+

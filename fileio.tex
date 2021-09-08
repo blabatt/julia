@@ -1,0 +1,36 @@
+\section{File I/O}
+
+\textit{open() a file, returning a handler (passing a \say{modality} $\in$ \underline{r}ead, \underline{w}rite, \underline{a}ppend); then close.}\\
+\mycolX{35mm}{\code{h = open(\textquotedbl f.txt\textquotedbl,\textquotedbl r\textquotedbl )}} \# create \underline{h}andle \\
+\mycolX{35mm}{\code{cont = read(f,String)}} \# read \\
+\mycolX{35mm}{\code{close(h)}} \# close \\
+
+
+\textit{It is, however, idiomatic to use the \say{do} construct:}\\
+\mycolX{35mm}{\code{open(\textquotedbl f.txt\textquotedbl ,\textquotedbl r\textquotedbl) do h}} \# create \\
+\mycolX{35mm}{\code{\phantom{xxx} cont = read(h,String)}} \# read \\
+\mycolX{35mm}{\code{end}} \# implied close \\
+\
+
+
+\textit{Reading line by line:}\\
+\mycolX{35mm}{\code{open(...) do h}} \#  \\
+\mycolX{35mm}{\code{\phantom{xx}for ln in eachline(h)}} \#  \\
+\mycolX{35mm}{\code{\phantom{xxxx}println(ln)}} \#  \\
+\mycolX{35mm}{\code{\phantom{xx}end}} \#  \\
+\mycolX{35mm}{\code{end}} \#  \\
+
+\textit{Writing:}\\
+\mycolX{35mm}{\code{open(\textquotedbl f.txt\textquotedbl,\textquotedbl w\textquotedbl) do h}} \#  \\
+\mycolX{35mm}{\code{\phantom{xxx}write(h,\textquotedbl text\textbackslash n\textquotedbl)}} \#  \\
+\mycolX{35mm}{\code{end}} \#  \\
+
+
+\textit{Helper methods:}\\
+{\scriptsize 
+\begin{tabular}{l l l l}
+    position & seek & seekstart & seekend \\
+    skip & isopen & oef & isreadonly \\
+    ltoh & ltol & [de]serialize &  download \\
+    readbytes & readcsv & readall & readlines \\
+\end{tabular}} \ \

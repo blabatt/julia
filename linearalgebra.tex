@@ -1,0 +1,38 @@
+\section{\href{https://docs.julialang.org/en/v1/stdlib/LinearAlgebra/}{Linear Algebra}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Building Matrices}
+\mycolX{35mm}{\code{[1. 2. 3.; 4. 5. 6.]}} \# 2x3 matrix $\in \mathbb{Q}$\\
+\mycolX{35mm}{\code{A = [1 2 3]'}} \# transpose \\
+\mycolX{35mm}{\code{transpose(A)}} \# ibid \\ 
+\mycolX{35mm}{\code{reshape(A,dims)}} \# transform \\ \mycolX{35mm}{\code{A = ones(2, 2)}} \# 2x2 matrix \\
+\mycolX{35mm}{\code{A = zeros(2,2)}} \# 2x2 $\matr{0}-matrix$\\
+\mycolX{35mm}{\code{A = Diagonal(A)}} \# diag. of $\matr{A}$\\
+\mycolX{30mm}{\code{A = I}} \# Identity matrix\\
+\mycolX{35mm}{\code{A = Matrix\{Int\}(I, 3, 3)}} \# ibid, 3x3 of ints\\
+\mycolX{35mm}{\code{A = reshape(1:10,5,2)}} \# shape from linear \\
+\mycolX{35mm}{\code{C = similar(A)}} \# same dims \\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Indexing into Matrices}
+\mycolX{35mm}{\code{A[2,2]}} \# access element \\
+\mycolX{35mm}{\code{A[1:4,:]}} \# access rows \\
+\mycolX{35mm}{\code{A[:,1:4]}} \# access cols \\
+\\\mycolX{35mm}{\code{A[[1,2,4],:]}} \# deselect row \\
+\mycolX{35mm}{\code{diag(A)}} \# retrieve diagonal \\
+\mycolX{35mm}{\code{size(A)}} \# get dimensions \\
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Matrix Math}
+\mycolX{35mm}{\code{eigvals(A)}} \# eigenvalues \\
+\mycolX{35mm}{\code{eigvect(A)}} \# eigenvectors \\
+\mycolX{35mm}{\code{inv(A)}} \# inverse \\
+\mycolX{35mm}{\code{det(A)}} \# determinant \\
+\mycolX{35mm}{\code{A .* B}} \# element mult \\
+\mycolX{35mm}{\code{A * B}} \# matrix mult \\
+\mycolX{35mm}{\code{dot(v1,v2)}} \# vector dot prod \\
+\mycolX{35mm}{\code{A\textbackslash b}} \# solve Ax = b \\
+\mycolX{35mm}{\code{rref(A)}} \# \href{https://juliapackages.com/packages/rowechelon}{\ul{r}ed. \ul{r}ow-\ul{e}chelon} \\
+\mycolX{35mm}{\code{nullspace(A)}} \# nullspace \\

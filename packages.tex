@@ -1,0 +1,46 @@
+\section{Packages \& Modules}
+
+\subsection*{Installing, Managing}
+\textit{Can alternatively use \say{package} mode, hitting \say{]} at REPL, then \say{?} for commands, which include: add, update, status, rm, etc.}\\
+\mycolX{40mm}{\code{Using Pkg}} \#  \\
+\mycolX{40mm}{\code{Pkg.add("name")}} \#  \\
+\mycolX{40mm}{\code{Pkg.clone("https://github...")}} \#  \\
+\mycolX{40mm}{\code{Pkg.checkout(url)}} \#  \\[1mm]
+\textit{After adding a package, you must explicitly include it with either }\texttt{import}\textit{ or }\texttt{using}:\\
+%keeps namespace clean, necessitating full path resolution; }\texttt{using}\textit{ clutters namespace.}\\
+\mycolX{30mm}{\code{import Plots }} \#  include (clean NS) \\
+\mycolX{30mm}{\code{using Plots }} \#  ibid (cluttered NS) \\
+\mycolX{30mm}{\code{require(file) }} \# load once \\
+\mycolX{30mm}{\code{reload(file) }} \# reload \\
+\mycolX{30mm}{\code{include(file) }} \# set dir, load \\
+
+
+
+\subsection*{Common Packages}
+
+\begin{itemize}
+    \item GLM
+    \item \mycolX{20mm}{\href{http://juliadata.github.io/DataFrames.jl/stable/}{DataFrames}} Tabular data manipulation 
+    \item NullableArrays
+    \item MixedModels
+    \item Optim
+    \item \mycolX{20mm}{\href{https://juliastats.github.io/Distributions.jl/stable/}{Distributions}} 
+    \item \mycolX{20mm}{JuMP} Machine Learning
+    \item \mycolX{20mm}{\href{https://juliahub.com/docs/SymPy/KzewI/1.0.25}{SymPy}} Symbolic computation
+    \item Convex
+    \item Losses
+    \item Transformations
+    \item jplyr
+    \item Query
+    \item SciKitLearn
+    \item PyCall
+    \item RCall
+    \item \mycolX{20mm}{\href{https://juliahub.com/docs/Roots/o0Xsi/1.0.5/roots/}{Roots}} [Transcendental] Eqn Solver
+    \item CSV
+    \item \mycolX{20mm}{ODBC} Database connectivity
+    \item Mamba
+    \item HTTP
+    \item \mycolX{20mm}{Weave} Document generation
+    \item \mycolX{20mm}{OdsIO} Open Documents
+    \item Images
+\end{itemize}

@@ -1,0 +1,106 @@
+\section{Collections}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Arrays}
+\textit{$\exists$ numerous ways to create:}\\
+\mycolX{30mm}{\code{A = [1 2 3 ...]}} \# concrete \\
+\mycolX{30mm}{\code{A = [1:1000]}} \# comprehension sugar \\
+\mycolX{30mm}{\code{A = [1 2; 3 4]}} \# matrix-style \\
+\mycolX{30mm}{\code{A = j:k:n}} \# lazy init, step k \\
+\mycolX{30mm}{\code{[f(i) for i in 1:10]}} \# comprehension \\
+\mycolX{30mm}{\code{vcat(x,y,z)}} \# = [x;y;z] \\
+\mycolX{30mm}{\code{hcat(x,y,z)}} \# = [x y a]  \\[2mm]
+\textit{Incremental creation using:}\\
+\begin{tabular}{l l l l}
+    push!       & pop!      & append! & prepend! \\
+    deleteat!   & pushfirst! & fill! & insert! \\
+\end{tabular} \ \\
+
+\textit{Array assignment is only a reference. Use \texttt{copy()} or \texttt{deepcopy()} to make a 1-layer, or full copy, respectively.}\\
+\mycolX{30mm}{\code{B = A}} \# reference-only \\
+\mycolX{30mm}{\code{B = copy(A)}} \# shallow copy \\[2mm]
+\textit{Homogeneous arrays (same type) are fast; heterogeneous arrays (::Any) are possible. Can also create a Union of enumerated types:}\\
+\mycolX{30mm}{\code{B = Union\{Int64,Float64\}[..]}} \\[2mm]
+\textit{Array inquiry functions:}\\
+\begin{tabular}{l l l}
+    sort    &       isempty         & findall \\
+    eltype & collect & size \\
+\end{tabular} \
+
+\textit{Operate over arrays with:}\\
+{\scriptsize
+\begin{tabular}{l l l l}
+    sum & product & any & all \\
+    minimum & maximum & findmin & findmax \\
+    first & last & count & getindex \\
+    filter & map & reduce & mapreduce \\
+\end{tabular}} \
+
+\textit{Transform arrays with:}\\
+{\scriptsize
+\begin{tabular}{l l l l}
+    splice! & reverse! & sort! & zip \\
+\end{tabular}} \ \\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Strings}
+\begin{itemize}
+    \item \mycolX{15mm}{s1*s2} \# concatenate s1, s2
+    \item \mycolX{15mm}{s\textasciicircum n} \# repeat s n times
+    \item \mycolX{15mm}{\$\{var\}} \# interpolation
+\end{itemize} \
+\textit{Helper operations:}\\
+\begin{tabular}{l l l l}
+    join      & replace       & [l|r]pad      & [l|r]strip \\
+    search      & rsearch      & in    &  \\
+    index      & rindex      & beginswith    & endswith \\
+    isalnum & isalpha & isascii & isblank \\
+    isdigit & isgraph & islower & isprint \\
+    isspace & ispunct & isupper & isxdigit \\
+\end{tabular} \
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Dictionaries}
+\textit{Dictionaries are mutable and type-unstable if different types are injected. Basic syntax:}\\
+\mycolX{35mm}{\code{myDict = Dict(}} \# declare ...\\
+\mycolX{35mm}{\code{\phantom{xxx}\textquotesingle a\textquotesingle => 1}} \# assign ... \\
+\mycolX{35mm}{\code{\phantom{xxx}\textquotesingle b\textquotesingle => 2 )}} \\
+\mycolX{35mm}{\code{[d(i)=value for (i,value)]}} \# comprehension \\
+\textit{Helper methods:} \\
+\begin{tabular}{l l l l}
+    get     &    getkey  &       values         & keys \\
+    collect    &       haskey         & in \\
+    length  &   delete!    & pop!   & merge \\
+\end{tabular} \
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Tuples}
+\mycolX{30mm}{\code{a = (1,2,3)}} \# creating \\
+\mycolX{30mm}{\code{a = tuple(1,2,3)}} \# ditto \\
+\mycolX{30mm}{\code{a = ntuple(n,f)}} \# \underline{f}unction gen \\
+\mycolX{30mm}{\code{a, b = (1,2)}} \# destructuring\\
+\mycolX{30mm}{\code{tup = (a=1,b=2)}} \# \say{named} tuples\\
+\mycolX{30mm}{\code{tup[1]; tup[2]}} \# indexing \\
+\mycolX{30mm}{\code{first(tup); last(tup)}} \# ibid \\
+\mycolX{30mm}{\code{tup.a}} \# dot-notation ($\equiv$ above) \\
+\textit{Tuples are immutable. $\exists$ the following helpers:}\\
+\begin{tabular}{l l l l}
+    values      & keys      & pairs    & collect \\
+\end{tabular} \
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Sets}
+\mycolX{30mm}{\code{s = Set([1,2,3,...])}} \# creation \\
+\mycolX{30mm}{\code{i = IntSet([1,2,3,...])}} \# sorted ints \\
+\mycolX{30mm}{\code{intersect(s1,s2)}} \# s1 $\land$ s2 \\
+\mycolX{30mm}{\code{union(s1,s2)}} \# s1 $\lor$ s2 \\
+\mycolX{30mm}{\code{setdiff(s1,s2)}} \# s1 $\neg$ s2 \\
+\mycolX{30mm}{\code{symdiff(s1,s2)}} \# s1 $\oplus$ s2 \\\mycolX{30mm}{\code{issubset(s1,s2)}} \# s1 $\subset$ s2 \\[2mm]
+\textit{Additional helper methods:}\\
+\begin{tabular}{l l l l}
+    add! & complement! \\
+\end{tabular} \

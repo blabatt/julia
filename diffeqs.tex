@@ -1,0 +1,29 @@
+\section{\href{https://docs.sciml.ai/stable/}{Differential Equations}}
+\textit{Import and use \say{DifferentialEquations}. Then:}
+\begin{itemize}
+    \item Define the problem (system, tspan, ICs)
+    \item Solve the problem (parameterize solver)
+    \item Analyze the solution (plot or inspect data)
+\end{itemize}
+
+\mycolX{35mm}{\code{f(t,u) = 1.01*u}} \# the system \\
+\mycolX{35mm}{\code{u0=1/2}} \# initial condition \\
+\mycolX{35mm}{\code{tspan = (0.0,1.0)}} \# timespan \\
+\mycolX{45mm}{\code{prob = ODEProblem(f,u0,tspan)}} \# wrap \\
+\mycolX{35mm}{\code{sol = solve(prob)}} \# solve \\
+\mycolX{39mm}{\code{sol = solve(prob,reltol=1e-6)}} \# parameterize\\
+\mycolX{35mm}{\code{sol = solve(prob,Tsit5())}} \# different solver \\
+\mycolX{35mm}{\code{sol[5]}} \# 5th step value\\
+\mycolX{35mm}{\code{sol.t[3]}} \# 3rd timestep val\\
+\mycolX{35mm}{\code{sol(.45)}} \# interpolated val\\
+\mycolX{35mm}{\code{plot(sol)}} \# plot \\[2mm]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Systems of Equations}
+\mycolX{35mm}{\code{function lorenz(t,u,du)}} \# lorentz eqn\\
+\mycolX{35mm}{\code{ du[1] = 10.0(u[2]-u[1])}} \\
+\mycolX{35mm}{\code{ du[2] = u[1]*(28.0-u[3]) - u[2]}} \\
+\mycolX{35mm}{\code{ du[3] = u[1]*u[2] - (8/3)*u[3]}} \\
+\mycolX{20mm}{\code{end}} \# now pass to ODEProblem()\\
+

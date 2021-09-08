@@ -1,0 +1,83 @@
+\section{Basic Syntax}
+
+\mycolX{35mm}{\code{x = 0}} \# simple assignment \\
+\mycolX{35mm}{\code{global x += 1}} \# variable scoping \\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Conditionals}
+\mycolX{35mm}{\code{if 1==1}} \# if w/o paren \\
+\mycolX{35mm}{\code{\phantom{xxx}...}} \# logic \\
+\mycolX{35mm}{\code{end}} \# condit\textquotesingle ls all \say{end}\\
+\mycolX{35mm}{\code{if <cnd>; <stmt>; end}} \# single line \\
+\mycolX{45mm}{\code{z = <cnd> ? <exp1> : <exp2>}} \# ternary \\
+\mycolX{35mm}{\code{for <cnd>; <stmt>*; end}} \# for syntax\\
+\mycolX{35mm}{\code{for i=1:5,j=1:10}} \# multi-condition; ...\\
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Functions}
+\textit{Functions do not exist as methods on \say{receiver} objects, but rather pass all objects / values as parameters. Polymorphism is accomplished at run-time through \say{multiple dispatch}, as determined by passed parameter types. Inquire into polymorphic overrides with \texttt{methods(myFn)} call.}\\
+\mycolX{30mm}{\code{function f(x,y)}}\\
+\mycolX{35mm}{\code{\phantom{xx}println(\textquotedbl Sum: \$x, \$y\textquotedbl)}} \# side-effects \\
+\mycolX{35mm}{\code{\phantom{xx}if(x+y>100) return 5}} \# explicit return \\
+\mycolX{35mm}{\code{\phantom{xx}x + y}} \# implicit return \\
+\mycolX{30mm}{\code{end}}\\
+\mycolX{30mm}{\code{f(x,y) = x + y}} \# $\approx$ to above\\
+\mycolX{30mm}{\code{g = f;}} \# functions as variables\\
+\mycolX{30mm}{\code{(x) -> x+a}} \# anonymous function \\
+\mycolX{30mm}{\code{f(x,dim=2)}} \# named arguments \\
+\mycolX{30mm}{\code{f(x,c...)}} \# spread operator \\
+\mycolX{30mm}{\code{$\sum$(x,y) = x + y}} \# unicode in fn names\\[2mm]
+\textit{By convention, exclamation indicates call by reference on 1\textsuperscript{st} argument.} \\
+\mycolX{30mm}{\code{f!(rcvr,<arg>*);}} \# receiver free to mutate\\
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Operators}
+\mycolX{30mm}{\code{+(1,2,3)}} \# operators are fns \\
+\mycolX{30mm}{\code{$>>\hspace{3mm}<<$}} \# logical shifts\\
+\mycolX{30mm}{\code{$>>>\hspace{3mm}<<<$}} \# arithm. shift \\
+\mycolX{30mm}{\code{$\veebar$}} \# \textbackslash xor | \textbackslash veebar \\
+\mycolX{30mm}{\code{==}} \# comparison \\
+\mycolX{30mm}{\code{===}} \# object equality \\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Higher Order Functions}
+\mycolX{30mm}{\code{filter(z -> z>3, x)}} \# filter \\
+\mycolX{30mm}{\code{map(z -> z\textasciicircum 2, [1,2,3])}} \# map \\
+\mycolX{38mm}{\code{broadcast(myFn,myArray)}} \# $\approx$ map\\
+\mycolX{30mm}{\code{f = x -> x\textasciicircum 2}} \# anonymous fn\\
+\mycolX{30mm}{\code{myFn.(myArray)}} \# sugar for broadcast \\
+\mycolX{30mm}{\code{reduce(+, xs, 5)}} \# $5 + \sum_i xs_i$ \\
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Comments}
+\mycolX{30mm}{\code{\textbackslash \# comment text }} \# single line \\
+\mycolX{30mm}{\code{\textbackslash \#= outer}} \# multi-line \\
+\mycolX{30mm}{\code{\phantom{xxx} \textbackslash \#= inner ...}} \# nestable \\
+\mycolX{30mm}{\code{=\textbackslash \# outer  =\textbackslash \#}} \# end of comments \\
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Exceptions}
+\code{try ...; catch e; end; finally ...;} \\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Macros}
+\mycolX{35mm}{\code{@time mean(y)}} \# time mean fn \\
+\mycolX{35mm}{\code{@code\_llvm f(1)}} \# look at asmb \\
+\mycolX{40mm}{\code{@show cdf(Normal(0,1),.5)}} \# evaluate \\
+\mycolX{30mm}{\code{@which copy([1,2,3])}} \# inspect mult dispatch \\
+\mycolX{35mm}{\code{@benchmark fn()}} \# basic code profile \\
+\mycolX{35mm}{\code{@profile fn()}} \# n simulation runs \\
+\mycolX{35mm}{\code{@assert}} \# assert \\
+\mycolX{35mm}{\code{@debug}} \# debug \\

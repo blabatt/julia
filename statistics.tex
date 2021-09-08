@@ -1,0 +1,174 @@
+\section{\href{https://docs.julialang.org/en/v1/stdlib/Statistics/}{Statistics} \& \href{https://juliastats.org/Distributions.jl/stable/}{Probability}}
+\textit{Import \say{Statistics}, \say{BaseStats}, \say{Distributions}.}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Random Numbers}
+\mycolX{35mm}{\code{A = rand(2)}} \# 2 rand floats \\
+\mycolX{35mm}{\code{A = rand(2,2)}} \# 2x2 matrix $\in \mathbb{Q}$\\
+\mycolX{35mm}{\code{rand(Uniform(a,b),2,3)}} \# from distribution \\
+%\mycolX{35mm}{\code{rand(a:.1:b)}} \# .1 precision \\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Array / Matrix Reducers}
+\mycolX{30mm}{\code{sum(A,dims=2)}} \# sum rows (dim=2) \\
+\mycolX{30mm}{\code{max(A,dims=1)}} \# max by cols (dim=1) \\
+\mycolX{30mm}{\code{min(A,dims=2)}} \# min by rows \\
+\mycolX{40mm}{\code{cumsum(A,dims=2)}} \# cumulative $\sum$ \\
+\mycolX{40mm}{\code{accumulate(max,A,dims=1)}} \# apply max fn \\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Probability Distributions}
+
+\entry{32mm}{D = Normal(0,1)}{a std normal}\\
+\entry{32mm}{quantile(D,[.9,.95])}{$\alpha = [.1,.05]$ quantiles}\\
+\entry{32mm}{cdf(D,x)}{$F_{\mu,\sigma^2}(x)$\, (here $\Phi(x)$)}\\
+\entry{32mm}{Binomial(.5)}{other distribt'ns}\\
+\entry{32mm}{fit(D,x)}{generic fit}\\
+\entry{32mm}{fit\_mle(D, x)}{$\hat{\theta}^{\mathrm{MLE}}$ estimation}\\
+%\entry{35mm}{}{}\\
+\textit{$\exists$ many dists, eg: \href{https://juliastats.org/Distributions.jl/stable/univariate/}{uni-} \& \href{https://juliastats.org/Distributions.jl/stable/multivariate/}{multivariate}, \& \href{https://juliastats.org/Distributions.jl/stable/matrix/}{matrix}.}\\
+
+\begin{comment}
+\api
+{1.9cm}{
+Arcsine     \\
+Beta[Prime] \\
+Biweight    \\
+Cauchy      \\
+Chi[sq]     \\
+Cosine      \\
+Epanechnikov\\
+Erlang      \\
+Exponential \\
+FDist       \\
+Frechet     \\
+Gamma       \\
+Gen'lzdPareto\\
+Gumbel      \\
+VonMises    \\
+}
+{1.9cm}{
+Inv.Gamma   \\
+Inv.Gaussian\\
+Kolmogorov  \\
+KSDist      \\
+KSOneSided  \\
+Laplace     \\
+Levy        \\
+Locat'nScale\\
+Logistic    \\
+LogitNormal \\
+LogNormal   \\
+Noncent.Beta\\
+Noncent.Chisq\\
+Noncent.F   \\
+Weibull     \\
+}
+{2.2cm}{
+Normal      \\
+Norm.Gaussian\\
+Norm.Inv.Gauss.\\
+Pareto      \\
+Gen'lzdExt'mVal.\\
+PGenl'zdGauss.\\
+Rayleigh    \\
+Semicircle  \\
+StudentizedRange\\
+SymTriang'lrR'ng\\
+TDist       \\
+TriangularDist\\
+TriWeight   \\
+Uniform     \\
+}
+\stopapi
+
+
+\textit{Discrete:}\\
+\api
+{1.8cm}{
+Bernoulli   \\
+BetaBinomial\\
+Binomial    \\
+Categorical \\
+}
+{1.9cm}{
+Dirac       \\
+Disc.Uniform\\
+Geometric   \\
+Skellam     \\
+}
+{2.3cm}{
+HyperGeometric\\
+Disc.NonParamt'c\\
+NegativeBinom'l\\
+Poisson     \\
+Poiss.Binomial\\
+
+}
+\stopapi
+
+
+
+\textit{[Matrix] Multivariate:}\\
+\api
+{2cm}{
+Multinomial \\
+Abst'ctMvNormal\\
+MvNormal    \\
+MvNorm.Canon\\
+}
+{2cm}{
+MvLogNormal \\
+Dirichlet   \\
+Product     \\
+MatrixNormal\\
+{[Inv.]}Wishart\\
+}
+{2cm}{
+MatrixReshaped\\
+MatrixTDist \\
+MatrixBeta  \\
+MatrixFDist \\
+LKJ         \\
+}
+\stopapi
+\end{comment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Statistics}
+\entry{30mm}{var(Normal())}{$\mathrm{var}\left(\mathcal{N}(0,1)\right)$}\\
+\entry{30mm}{var([1,2,3])}{$\widetilde{S}(\vec{x})$ (here $=1$)}\\
+\entry{30mm}{mean([1,2,3])}{mean, here $=2$}\\
+\entry{32mm}{mod = @formula(y \textasciitilde x)}{modelling (see \href{https://www.machinelearningplus.com/linear-regression-in-julia/}{here})}\\
+\entry{30mm}{lm(mod,data)}{regression}\\
+%\entry{35mm}{}{}\\
+\api
+{1.4cm}{
+max     \\
+min     \\
+extreme \\
+cor     \\
+}
+{1.3cm}{
+mean    \\
+var     \\
+std     \\
+mode    \\
+cf      \\
+}
+{1.9cm}{
+skewn'ss\\
+kurtosis\\
+mgf     \\
+pdfsq.n'rm\\
+}
+{1.4cm}{
+cov     \\
+invcov  \\
+location\\
+scale   \\
+}
+\stopapi
