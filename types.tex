@@ -41,6 +41,25 @@
 \mycolX{40mm}{\code{abstract type MyConcType <:MyGenType end}}  \\
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{\href{https://docs.julialang.org/en/v1/manual/constructors/}{Constructors}}
+\textit{Technically ``methods'', $\exists$ two types: `inner' and `outer'. An eponymous `default' inner is provided:}\\
+\entry{30mm}{struct MyStruct }{``composite'' type}\\
+\entry{30mm}{\phantom{xxx}x::Int64 end}{a single field}\\
+\entry{30mm}{s = MyStruct(5)}{default constructor}\\[2mm]
+\textit{Inners are used for enforcing invariants:}\\
+\code{struct MyControlledStruct}\\
+\code{\phantom{xxx}MyControlledStruct(x::Int64) = \textbackslash}\\
+\code{\phantom{xxxxxx}x > 5 ? new(x) : error("must be >5")}\\
+\code{end}\\[2mm]
+\textit{Outers can be appended by other modules, and are used for convenience (eg, argument elision):}\\
+\entry{38mm}{MyStruct() = MyStruct(3)}{use mult. dispch}\\[2mm]
+\textit{Parametric types JIT create concrete types with an inner constructor. Invoke implicitly or explicitly:}\\
+\entry{30mm}{p = Point(1.0,2.5)}{implicit: T = Float64}\\
+\entry{30mm}{p = Point\{Int64\}(1,2)}{explicit T = Int64}\\
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Regexs}
 \mycolX{35mm}{\code{rm = match(r"regex",s,i)}} \# execute \\
